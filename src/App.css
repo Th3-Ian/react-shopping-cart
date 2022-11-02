@@ -61,3 +61,71 @@ nav {
 h1 {
 	color: black;
 }
+
+a {
+	color: white;
+}
+
+/* HOMEPAGE CTA */
+
+.cta-home-img {
+	width: 110%;
+	height: 60vh;
+	max-height: 400px;
+}
+
+.cta-home-msg {
+	font-size: 3.5vw;
+	font-family: 'Josefin Sans', sans-serif;
+	padding: 36px;
+	position: fixed;
+	top: 10px;
+	filter: drop-shadow(6px 6px 8px rgb(62, 62, 62));
+}
+
+.cta-container {
+	position: relative;
+	text-align: center;
+	color: white;
+	overflow: hidden;
+	cursor: pointer;
+	filter: drop-shadow(4px 8px 4px rgb(62, 62, 62));
+	height: 60vh;
+	max-height: 400px;
+}
+
+.cta-btn {
+	position: relative;
+	bottom: 90px;
+  background-color: initial;
+  background-image: linear-gradient(#bbeaff 0, #72d3fe 100%);
+  border-radius: 5px;
+  border-style: none;
+  box-shadow: rgba(245, 244, 247, .25) 0 1px 1px inset;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 20px;
+  height: 54px;
+  line-height: 60px;
+  margin-left: -4px;
+  text-align: center;
+  transition: all .3s cubic-bezier(.05, .03, .35, 1);
+  touch-action: manipulation;
+  vertical-align: bottom;
+  width: 170px;
+}
+
+.cta-btn:hover {
+  opacity: .7;
+}
+
+@media screen and (max-width: 1000px) {
+  .button-69 {
+    font-size: 14px;
+    height: 55px;
+    line-height: 55px;
+    width: 150px;
+  }
+}

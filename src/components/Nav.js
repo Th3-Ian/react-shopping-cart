@@ -9,16 +9,16 @@ function Nav() {
 		<nav>
 			<div className='logo-header'>HORLOGES</div>
 			<ul className='nav-links'>
-				<li>
+
 				<Link style={linkStyle} to="/" >
-					Home
+				<li>Home</li>
 				</Link>
-				</li>
-				<li>
+
+
 				<Link style={linkStyle}  to="/shop" >
-					Shop
+				<li>Shop</li>
 				</Link>
-				</li>
+
 				<li>
 					<Badge color="primary" badgeContent='0'>
 						<ShoppingCartIcon />{" "}

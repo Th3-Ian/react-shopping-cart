@@ -1,8 +1,9 @@
 import React from 'react';
+import CTA from './CTA'
 
 function Home() {
   return <div>
-		<h1>HOMEPAGE</h1>
+		<CTA />
 	</div>;
 }
 
