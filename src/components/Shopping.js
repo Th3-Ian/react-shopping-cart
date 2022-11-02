@@ -1,7 +1,11 @@
 import React from 'react';
 
 function Shopping() {
-  return <div>Shopping</div>;
+  return (
+    <div>
+      <h1>SHOP</h1>
+    </div>
+  );
 }
 
 export default Shopping;
