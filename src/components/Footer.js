@@ -1,7 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-import Badge from "@material-ui/core/Badge";
 
 function Footer() {
 	return (
