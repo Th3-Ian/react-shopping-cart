@@ -209,3 +209,41 @@ aside {
 	width: 8%;
 	transition: 0.5s;
 }
+
+/* PRODUCT CARD */
+
+.card-container {
+	max-width: 200px;
+	max-height: 360px;
+	overflow: hidden;
+	border: 2px solid black;
+	border-radius: 20px;
+	margin: 30px;
+}
+
+.card-container input {
+	width: 32px;
+	margin: 0 8px;
+}
+
+.card-container img {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	border-radius: inherit;
+}
+
+.card-desc {
+	position: relative;
+	top: -180px;
+	text-align: center;
+	background-color: rgb(90, 170, 205, .25);
+	padding-top: 140px;
+	margin-bottom: -160px;
+}
+
+
+.hidden-transition {
+	visibility: hidden;
+}

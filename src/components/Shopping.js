@@ -1,6 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
 import ViewHeadlineIcon from '@material-ui/icons/ViewHeadline';
+import ProductCard from './ProductCard';
+import ProductPlaceholder from '../Assets/product-placeholder.png';
 
 function Shopping() {
 	const [aside, setAside] = useState(false)
@@ -13,9 +15,11 @@ function Shopping() {
 
   return (
     <div className='shop-container'>
-			<aside className={aside ? null : 'closed-aside' } id='asideShop' onClick={handleClick}>
-				<div className={hideIcon}>
+			<aside className={aside ? null : 'closed-aside' } id='asideShop' onClick={aside ? null : handleClick}>
+				<div onClick={aside ? handleClick : null}>
+					<div className={hideIcon}>
 					<ViewHeadlineIcon fontSize='large' />{" "}
+					</div>
 				</div>
 				<h3 className={`aside-header ${hiddenCheck}`}>Categories</h3>
 				<ul className={`shop-categories ${hiddenCheck}`}>
@@ -28,6 +32,7 @@ function Shopping() {
 			</aside>
 			<div>
 				<h1>SHOP</h1>
+				{<ProductCard name={'Watch 1'} price={'$198'} description={'Amazing watch'} type={'dive'} img={ProductPlaceholder} />}
 			</div>
 
     </div>
