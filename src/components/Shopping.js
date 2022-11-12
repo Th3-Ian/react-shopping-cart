@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import ViewHeadlineIcon from '@material-ui/icons/ViewHeadline';
+import TransitEnterexitIcon from '@material-ui/icons/TransitEnterexit';
 import ProductCard from './ProductCard';
 import ProductPlaceholder from '../Assets/product-placeholder.png';
 
@@ -19,8 +20,9 @@ function Shopping({ cart, setCart }) {
     <div className='shop-container'>
 			<aside className={aside ? null : 'closed-aside' } id='asideShop' onClick={aside ? null : handleClick}>
 				<div onClick={aside ? handleClick : null}>
-					<div className={hideIcon}>
-					<ViewHeadlineIcon fontSize='large' />{" "}
+					<div>
+						{aside === false ? <ViewHeadlineIcon fontSize='large' /> : <TransitEnterexitIcon fontSize='large' />}
+
 					</div>
 				</div>
 				<h3 className={`aside-header ${hiddenCheck}`}>Categories</h3>
