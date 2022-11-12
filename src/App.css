@@ -222,7 +222,7 @@ aside {
 }
 
 .card-container input {
-	width: 32px;
+	width: 24px;
 	margin: 0 8px;
 }
 
@@ -246,4 +246,16 @@ aside {
 
 .hidden-transition {
 	visibility: hidden;
+}
+
+.card-info {
+	display: flex;
+	justify-content: space-between;
+	margin: 0 6px;
+}
+
+.card-btn-container {
+	display: flex;
+	justify-content: space-between;
+	margin: 12px 6px;
 }

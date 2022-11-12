@@ -4,7 +4,7 @@ import ViewHeadlineIcon from '@material-ui/icons/ViewHeadline';
 import ProductCard from './ProductCard';
 import ProductPlaceholder from '../Assets/product-placeholder.png';
 
-function Shopping() {
+function Shopping({ cart, setCart }) {
 	const [aside, setAside] = useState(false)
 	let hiddenCheck = aside ? null : 'hidden';
 	let hideIcon = aside ? 'hidden' : null;
@@ -12,6 +12,8 @@ function Shopping() {
 	function handleClick() {
 		setAside(aisde => !aside)
 	}
+
+
 
   return (
     <div className='shop-container'>
@@ -32,7 +34,7 @@ function Shopping() {
 			</aside>
 			<div>
 				<h1>SHOP</h1>
-				{<ProductCard name={'Watch 1'} price={'$198'} description={'Amazing watch'} type={'dive'} img={ProductPlaceholder} />}
+				{<ProductCard name={'Watch 1'} price={'$198'} description={'Amazing watch'} type={'dive'} img={ProductPlaceholder} setCart={setCart} cart={cart} />}
 			</div>
 
     </div>
