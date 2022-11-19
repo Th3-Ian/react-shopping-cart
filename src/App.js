@@ -4,11 +4,13 @@ import Home from './components/Home';
 import Shopping from './components/Shopping';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import Cart from './components/Cart';
 import Footer from './components/Footer';
 
 function App() {
   const [cart, setCart] = useState([]);
   const [cartTotal, setcartTotal] = useState(0);
+  const [openModal, setOpenModal] = useState(false);
 
   useEffect(() => {
     let newTot = 0;
@@ -16,10 +18,16 @@ function App() {
     setcartTotal(newTot);
   }, [cart]);
 
+  const open = () => {
+    const newState = !openModal;
+    setOpenModal(newState);
+  };
+
   return (
     <>
       <BrowserRouter>
-        <Nav cart={cart} cartTotal={cartTotal} />
+        <Nav cart={cart} cartTotal={cartTotal} open={open} />
+        <Cart cart={cart} setCart={setCart} openModal={openModal} open={open} />
         <Routes>
           <Route path='/' element={<Home />} />
           <Route

@@ -1,9 +1,12 @@
 import React from 'react';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import Badge from '@material-ui/core/Badge';
+import { Button } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
-function Nav({ cart, cartTotal }) {
+function Nav({ cart, cartTotal, open }) {
+  const [visibility, setVisibility] = useState(false);
   const linkStyle = { color: 'white' };
 
   return (
@@ -19,9 +22,11 @@ function Nav({ cart, cartTotal }) {
         </Link>
 
         <li>
-          <Badge color='primary' badgeContent={cartTotal}>
-            <ShoppingCartIcon />{' '}
-          </Badge>
+          <Button onClick={open}>
+            <Badge color='primary' badgeContent={cartTotal}>
+              <ShoppingCartIcon />{' '}
+            </Badge>
+          </Button>
         </li>
       </ul>
     </nav>
