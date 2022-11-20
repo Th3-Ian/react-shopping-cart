@@ -13,8 +13,14 @@ import {
 import DeleteIcon from '@material-ui/icons/Delete';
 import { useState, useEffect } from 'react';
 
-function CartItem({ item, updateCart, removeItem }) {
-  const [quant, setQuant] = useState(1);
+function CartItem({ item, updateCart }) {
+  const [quant, setQuant] = useState(0);
+
+  const itemNum = item.quantity;
+
+  useEffect(() => {
+    setQuant(itemNum);
+  }, []);
 
   const decreaseQuant = () => {
     setQuant(quant > 0 ? quant - 1 : null);
@@ -28,30 +34,54 @@ function CartItem({ item, updateCart, removeItem }) {
   return (
     <Card elevation={3}>
       <CardMedia
-        style={{ height: 160 }}
+        style={{ height: 100 }}
         image={item.img ? item.img : ProductPlaceholder}
         title={item.name}
       />
       <CardContent>
-        <Typography gutterBottom variant='h6'>
-          {item.name}
-        </Typography>
-        <DeleteIcon onClick={removeItem(item)} />
-        <Box display='flex' justifyContent='space-between' my={2}>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignContent: 'center'
+          }}
+        >
+          <Typography gutterBottom variant='h6'>
+            {item.name}
+          </Typography>
+          <Button>
+            <DeleteIcon />
+          </Button>
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            marginTop: '10px'
+          }}
+        >
+          <Typography gutterBottom variant='subtitle2'>
+            {item.price}
+          </Typography>
           <Typography gutterBottom variant='subtitle2'>
             QTY
-            <button className='decrease-btn' onClick={decreaseQuant}>
+            <button
+              className='decrease-btn'
+              onClick={decreaseQuant}
+              style={{ margin: '0 8px 0 8px' }}
+            >
               -
             </button>
-            {item.quantity}
-            <button className='increase-btn' onClick={increaseQuant}>
+            {quant}
+            <button
+              className='increase-btn'
+              onClick={increaseQuant}
+              style={{ margin: '0 8px 0 8px' }}
+            >
               +
             </button>
           </Typography>
-          <Typography gutterBottom variant='subtitle2'>
-            $ {item.price}
-          </Typography>
-        </Box>
+        </div>
       </CardContent>
     </Card>
   );

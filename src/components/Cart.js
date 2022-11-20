@@ -2,12 +2,30 @@ import React from 'react';
 import { Box, Button, Card, Grid, Typography } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import CartItem from './CartItem';
+import { useEffect } from 'react';
 
 // use material UI cards to dynamically show cart objects
 //add update quantity & delete funcionality
 
 function Cart({ cart, setCart, openModal, open }) {
 	if (!openModal) return null;
+
+	const testCart = [
+		{ name: 'watch test', type: 'dive', price: '499', quantity: 3 }
+	]
+
+	// useEffect(() => {
+	// 	if (cart.some((x) => x.name === item.name)) {
+  //     const newState = cart.map((x) => {
+  //       if (x.name === item.name) {
+  //         return { ...x, quantity: x.quantity + quant };
+  //       }
+  //       return x;
+  //     });
+  //     setCart(newState);
+  //   } else { return }
+	// }, [cart])
+
 
 	const updateCart = (item, quant) => {
     if (cart.some((x) => x.name === item.name)) {
@@ -21,12 +39,13 @@ function Cart({ cart, setCart, openModal, open }) {
     } else { return }
   };
 
-	const removeItem = (x) => {
-    setCart((cart) => {
-			cart.filter((item) =>
-				item.name === x.name)
-		})
-	};
+	// const removeItem = (x) => {
+	// 	const newCart = () => {
+	// 		cart.filter((item) =>
+	// 			item.name === x.name)
+	// 	}
+  //   setCart(newCart)
+	// };
 
   return (
 		<div className='modalBackground'>
@@ -37,8 +56,8 @@ function Cart({ cart, setCart, openModal, open }) {
 				</Box>
 				<Grid container spacing={3}>
 					{cart?.map((item, i) => (
-						<Grid key={i} item xs={12}>
-							<CartItem item={item} updateCart={updateCart} removeItem={removeItem} />
+						<Grid key={i} item xs={8}>
+							<CartItem item={item} updateCart={updateCart} />
 						</Grid>
 					))}
 					<Box>
