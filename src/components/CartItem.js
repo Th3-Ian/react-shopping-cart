@@ -33,9 +33,12 @@ function CartItem({ item, addCart, removeCart, removeItem }) {
   };
 
   return (
-    <Card elevation={3}>
+    <Card
+      elevation={3}
+      style={{ display: 'flex', width: '150%', justifyContent: 'center' }}
+    >
       <CardMedia
-        style={{ height: 100 }}
+        style={{ height: 120, width: 120 }}
         image={item.img ? item.img : ProductPlaceholder}
         title={item.name}
       />
@@ -47,10 +50,13 @@ function CartItem({ item, addCart, removeCart, removeItem }) {
             alignContent: 'center'
           }}
         >
-          <Typography gutterBottom variant='h6'>
+          <Typography gutterBottom variant='h6' style={{ marginTop: 5 }}>
             {item.name}
           </Typography>
-          <Button onClick={removeItem}>
+          <Button
+            onClick={() => removeCart(item, null)}
+            style={{ marginBottom: 20 }}
+          >
             <DeleteIcon />
           </Button>
         </div>
@@ -61,7 +67,11 @@ function CartItem({ item, addCart, removeCart, removeItem }) {
             marginTop: '10px'
           }}
         >
-          <Typography gutterBottom variant='subtitle2'>
+          <Typography
+            gutterBottom
+            variant='subtitle2'
+            style={{ marginRight: 10 }}
+          >
             {item.price}
           </Typography>
           <Typography gutterBottom variant='subtitle2'>

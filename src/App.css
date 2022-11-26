@@ -275,7 +275,7 @@ aside {
 }
 
 .modalContainer {
-	width: 500px;
+	width: 380px;
 	height: 100vh;
 	background-color: white;
 	box-shadow: rbga(0, 0, 0, 0.35) 0px 5px 15px;

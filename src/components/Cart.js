@@ -63,7 +63,7 @@ function Cart({ cart, setCart, openModal, open }) {
 							<CartItem item={item} addCart={addCart} removeCart={removeCart} removeItem={removeItem} />
 						</Grid>
 					))}
-					<Box>
+					<Box style={{ display: 'flex', marginLeft: 'auto', marginRight: 'auto', marginTop: 20 }}>
 						<Button>
 							<Typography gutterBottom variant='h4'>
 								CHECK OUT
