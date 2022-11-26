@@ -14,24 +14,11 @@ function Cart({ cart, setCart, openModal, open }) {
 		{ name: 'watch test', type: 'dive', price: '499', quantity: 3 }
 	]
 
-	// useEffect(() => {
-	// 	if (cart.some((x) => x.name === item.name)) {
-  //     const newState = cart.map((x) => {
-  //       if (x.name === item.name) {
-  //         return { ...x, quantity: x.quantity + quant };
-  //       }
-  //       return x;
-  //     });
-  //     setCart(newState);
-  //   } else { return }
-	// }, [cart])
-
-
-	const updateCart = (item, quant) => {
+	const addCart = (item, quant) => {
     if (cart.some((x) => x.name === item.name)) {
       const newState = cart.map((x) => {
         if (x.name === item.name) {
-          return { ...x, quantity: x.quantity + quant };
+          return { ...x, quantity: x.quantity + 1 };
         }
         return x;
       });
@@ -39,13 +26,29 @@ function Cart({ cart, setCart, openModal, open }) {
     } else { return }
   };
 
-	// const removeItem = (x) => {
-	// 	const newCart = () => {
-	// 		cart.filter((item) =>
-	// 			item.name === x.name)
-	// 	}
-  //   setCart(newCart)
-	// };
+	const removeCart = (item, quant) => {
+		console.log('this is the quant ' + quant)
+		if (quant === null || quant === 0) {
+			const newState = cart.filter( x => x.name !== item.name)
+      setCart(newState);
+		} else if (cart.some((x) => x.name === item.name)) {
+      const newState = cart.map((x) => {
+        if (x.name === item.name) {
+          return { ...x, quantity: x.quantity - 1 };
+        }
+        return x;
+      });
+      setCart(newState);
+    } else { return }
+  };
+
+	const removeItem = (x) => {
+		const newCart = () => {
+			cart.filter((item) =>
+				item.name === x.name)
+		}
+    setCart(newCart)
+	};
 
   return (
 		<div className='modalBackground'>
@@ -57,7 +60,7 @@ function Cart({ cart, setCart, openModal, open }) {
 				<Grid container spacing={3}>
 					{cart?.map((item, i) => (
 						<Grid key={i} item xs={8}>
-							<CartItem item={item} updateCart={updateCart} />
+							<CartItem item={item} addCart={addCart} removeCart={removeCart} removeItem={removeItem} />
 						</Grid>
 					))}
 					<Box>

@@ -13,7 +13,7 @@ import {
 import DeleteIcon from '@material-ui/icons/Delete';
 import { useState, useEffect } from 'react';
 
-function CartItem({ item, updateCart }) {
+function CartItem({ item, addCart, removeCart, removeItem }) {
   const [quant, setQuant] = useState(0);
 
   const itemNum = item.quantity;
@@ -23,12 +23,13 @@ function CartItem({ item, updateCart }) {
   }, []);
 
   const decreaseQuant = () => {
-    setQuant(quant > 0 ? quant - 1 : null);
-    updateCart(item, quant);
+    setQuant(quant > 1 ? quant - 1 : null);
+    removeCart(item, quant - 1);
   };
+
   const increaseQuant = () => {
     setQuant(quant + 1);
-    updateCart(item, quant);
+    addCart(item, quant);
   };
 
   return (
@@ -49,7 +50,7 @@ function CartItem({ item, updateCart }) {
           <Typography gutterBottom variant='h6'>
             {item.name}
           </Typography>
-          <Button>
+          <Button onClick={removeItem}>
             <DeleteIcon />
           </Button>
         </div>
