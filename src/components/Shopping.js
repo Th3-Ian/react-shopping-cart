@@ -116,7 +116,7 @@ function Shopping({ cart, setCart }) {
         </ul>
       </aside>
       <div className='product-container'>
-        <h1>SHOP</h1>
+        <h1>SHOP {category.toUpperCase()}</h1>
         <Grid container className='product-grid'>
           {products?.map((item, i) => {
             if (category === 'all') {
@@ -153,35 +153,5 @@ function Shopping({ cart, setCart }) {
     </div>
   );
 }
-/*
-{if (category === 'all') {
-	products?.map((item, i) => (
-		<Grid key={i} item>
-			<ProductCard
-				name={item.name}
-				price={item.price}
-				description={item.description}
-				type={item.type}
-				img={item.img}
-				setCart={setCart}
-				cart={cart}
-			/>
-		</Grid>
-	))} else {
-		filteredProducts().map((item, i) => (
-			<Grid key={i} item>
-			<ProductCard
-				name={item.name}
-				price={item.price}
-				description={item.description}
-				type={item.type}
-				img={item.img}
-				setCart={setCart}
-				cart={cart}
-			/>
-		</Grid>
-		))
-	}
-}
-*/
+
 export default Shopping;

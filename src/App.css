@@ -179,6 +179,7 @@ aside {
 	color: white;
 	width: 20%;
 	min-width: 75px;
+	min-height: 85vh;
 	transition: 0.5s;
 	top: 0%;
 	bottom: 0%;
@@ -217,7 +218,11 @@ aside {
 
 .product-container {
 	width: 80%;
+}
 
+.product-grid {
+	justify-content: flex-start;
+	min-width: 100%;
 }
 
 .product-container h1 {
