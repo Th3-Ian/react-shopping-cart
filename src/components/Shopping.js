@@ -78,6 +78,14 @@ function Shopping({ cart, setCart }) {
     }
   ];
 
+  const handleCategory = (e) => {
+    const catName = e.target.textContent.toLowerCase();
+    console.log(catName);
+
+    setCategory(catName);
+    console.log('This is the Category Variable ' + category);
+  };
+
   function handleClick() {
     setAside((aisde) => !aside);
   }
@@ -100,33 +108,80 @@ function Shopping({ cart, setCart }) {
         </div>
         <h3 className={`aside-header ${hiddenCheck}`}>Categories</h3>
         <ul className={`shop-categories ${hiddenCheck}`}>
-          <li>Chronograph</li>
-          <li>Dive</li>
-          <li>Dress</li>
-          <li>GMT</li>
-          <li>Pilot</li>
+          <li onClick={(e) => handleCategory(e)}>Chronograph</li>
+          <li onClick={(e) => handleCategory(e)}>Dive</li>
+          <li onClick={(e) => handleCategory(e)}>Dress</li>
+          <li onClick={(e) => handleCategory(e)}>GMT</li>
+          <li onClick={(e) => handleCategory(e)}>All</li>
         </ul>
       </aside>
       <div className='product-container'>
         <h1>SHOP</h1>
         <Grid container className='product-grid'>
-          {products?.map((item, i) => (
-            <Grid key={i} item>
-              <ProductCard
-                name={item.name}
-                price={item.price}
-                description={item.description}
-                type={item.type}
-                img={item.img}
-                setCart={setCart}
-                cart={cart}
-              />
-            </Grid>
-          ))}
+          {products?.map((item, i) => {
+            if (category === 'all') {
+              return (
+                <Grid key={i} item>
+                  <ProductCard
+                    name={item.name}
+                    price={item.price}
+                    description={item.description}
+                    type={item.type}
+                    img={item.img}
+                    setCart={setCart}
+                    cart={cart}
+                  />
+                </Grid>
+              );
+            } else if (item.type === category)
+              return (
+                <Grid key={i} item>
+                  <ProductCard
+                    name={item.name}
+                    price={item.price}
+                    description={item.description}
+                    type={item.type}
+                    img={item.img}
+                    setCart={setCart}
+                    cart={cart}
+                  />
+                </Grid>
+              );
+          })}
         </Grid>
       </div>
     </div>
   );
 }
-
+/*
+{if (category === 'all') {
+	products?.map((item, i) => (
+		<Grid key={i} item>
+			<ProductCard
+				name={item.name}
+				price={item.price}
+				description={item.description}
+				type={item.type}
+				img={item.img}
+				setCart={setCart}
+				cart={cart}
+			/>
+		</Grid>
+	))} else {
+		filteredProducts().map((item, i) => (
+			<Grid key={i} item>
+			<ProductCard
+				name={item.name}
+				price={item.price}
+				description={item.description}
+				type={item.type}
+				img={item.img}
+				setCart={setCart}
+				cart={cart}
+			/>
+		</Grid>
+		))
+	}
+}
+*/
 export default Shopping;
